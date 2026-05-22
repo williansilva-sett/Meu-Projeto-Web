@@ -1,7 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using ServidorApi.Data; // Namespace onde está seu DataContext.cs
+using ServidorApi.Services.Interfaces;
+using ServidorApi.Services;
+using ServidorApi.Mappings;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+using FluentValidation;
+
 
 var builder = WebApplication.CreateBuilder(args);
+// Adicione o registro da Injeção de Dependência
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 
 // Configuração da conexão com o Banco de Dados (MySQL)
@@ -15,6 +24,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<UsuarioValidator>();
+builder.Services.AddScoped<IEntradaService, EntradaService>();
+builder.Services.AddScoped<ISaidaService, SaidaService>();
+builder.Services.AddScoped<IContaService, ContaService>();
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+/*builder.Services.AddScoped<ISaldoContaService, SaldoContaService>();*/
+builder.Services.AddSingleton<ISenhaHasher, SenhaHasher>();
+
     
 var app = builder.Build();
 

@@ -1,48 +1,73 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ServidorApi.Data;
 using ServidorApi.DTOs;
-using ServidorApi.Models;
+using ServidorApi.Services.Interfaces;
 
 namespace ServidorApi.Controllers
 {
-    [Route("api/[controller]")] // Define a rota como api/usuarios
     [ApiController]
+    [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
     {
-        private readonly DataContext _context;
-        private readonly IMapper _mapper;
+        private readonly IUsuarioService _usuarioService;
 
-        // O ASP.NET injeta o Banco e o Mapeador automaticamente aqui
-        public UsuariosController(DataContext context, IMapper mapper)
+        // O Controller agora só conhece o Service. 
+        // A "sujeira" de banco de dados fica no Service.
+        public UsuariosController(IUsuarioService usuarioService)
         {
-            _context = context;
-            _mapper = mapper;
+            _usuarioService = usuarioService;
         }
 
-        // GET: api/usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UsuarioResponseDTO>>> GetUsuarios()
+        public async Task<IActionResult> GetAll() 
         {
-            var usuarios = await _context.Usuarios.ToListAsync();
-            
-            // Converte a lista de Entidades para uma lista de DTOs
-            var usuariosDto = _mapper.Map<List<UsuarioResponseDTO>>(usuarios);
-            
-            return Ok(usuariosDto);
+            return Ok(await _usuarioService.ListarTodos());
         }
 
-        // POST: api/usuarios (Cadastro)
-        [HttpPost]
-        public async Task<ActionResult<UsuarioResponseDTO>> PostUsuario(Usuario usuario)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id) 
         {
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
+            var usuario = await _usuarioService.BuscarPorId(id);
+            if (usuario == null) return NotFound("Usuário não encontrado.");
+            return Ok(usuario);
+        }
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id) 
+        {
+            await _usuarioService.Deletar(id);
+            return NoContent();
+        }
 
-            var usuarioDto = _mapper.Map<UsuarioResponseDTO>(usuario);
+        [HttpGet("filtrar")]
+        public IActionResult GetFiltrado([FromQuery] UsuarioResponseDTO request)
+        {
+            // O .NET vai usar o validador automaticamente se estiver registrado no Program.cs
+            return Ok($"Buscando usuários com {request.Idade} anos.");
+        }
 
-            return CreatedAtAction(nameof(GetUsuarios), new { id = usuario.UsuarioID }, usuarioDto);
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody]UsuarioCreateDTO dto) 
+        {
+            // 1. Validamos manualmente aqui
+            var validator = new UsuarioCreateValidator();
+            var validationResult = await validator.ValidateAsync(dto);
+
+            // 2. Se houver erro (ex: idade < 18), ele para aqui e avisa o usuário
+            if (!validationResult.IsValid) 
+            {
+                return BadRequest(validationResult.Errors.Select(e => e.ErrorMessage));
+            }
+
+            // 3. Só chega aqui se for maior de idade
+            var novoUsuario = await _usuarioService.Criar(dto);
+            return CreatedAtAction(nameof(GetById), new { id = novoUsuario.Id }, novoUsuario);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UsuarioUpDateDTO dto)
+        {
+            await _usuarioService.Atualizar(id, dto);
+            return NoContent();
         }
     }
 }

@@ -53,13 +53,28 @@ TemporaryDependencyNodeTargetIdentifier=net8.0
 /warnaserror+:NU1605,SYSLIB0011
 
 [sourceFiles]
-Controllers/UsuariosController.cs
+Controllers/
+ CategoriaController.cs
+ ContaController.cs
+ EntradaController.cs
+ UsuariosController.cs
 Data/DataContext.cs
-DTOs/UsuarioResponseDTO.cs
-Mappings/MappingProfile.cs
+DTOs/
+ CategoriaResponseDTO.cs
+ ContaResponseDTO.cs
+ ContaUpdateDTO.cs
+ EntradasResponseDTO.cs
+ EntradasUpdateDTO.cs
+ SaidaResponseDTO.cs
+ SaidaUpdateDTO.cs
+ UsuarioResponseDTO.cs
+Mappings/UsuarioProfile.cs
+Middleware/ErrorHandlingMiddleware.cs
 Migrations/
  20260424005959_CriacaoInicial.cs
  20260424005959_CriacaoInicial.Designer.cs
+ 20260510035546_AjusteFinalMapeamento.cs
+ 20260510035546_AjusteFinalMapeamento.Designer.cs
  DataContextModelSnapshot.cs
 Models/
  Categoria.cs
@@ -73,11 +88,29 @@ obj/Debug/net8.0/
  ServidorApi.AssemblyInfo.cs
  ServidorApi.GlobalUsings.g.cs
 Program.cs
+Services/
+ ContaService.cs
+ EntradaService.cs
+ Interfaces/
+  ICategoriaService.cs
+  IContaService.cs
+  IEntradaService.cs
+  IUsuarioService.cs
+ UsuarioService.cs
+Validators/
+ CategoriaValidator.cs
+ ContaValidator.cs
+ EntradasValidator.cs
+ SaidaValidator.cs
+ UsuarioValidator.cs
 
 [metadataReferences]
 <NUGET>/
  automapper.extensions.microsoft.dependencyinjection/12.0.1/lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
  automapper/12.0.1/lib/netstandard2.1/AutoMapper.dll
+ fluentvalidation.aspnetcore/11.3.1/lib/net6.0/FluentValidation.AspNetCore.dll
+ fluentvalidation.dependencyinjectionextensions/12.1.1/lib/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+ fluentvalidation/12.1.1/lib/net8.0/FluentValidation.dll
  microsoft.aspnetcore.app.ref/8.0.25/ref/net8.0/
   Microsoft.AspNetCore.Antiforgery.dll
   Microsoft.AspNetCore.Authentication.Abstractions.dll

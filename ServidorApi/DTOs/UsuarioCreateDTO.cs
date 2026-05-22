@@ -1,19 +1,12 @@
 namespace ServidorApi.DTOs
 {
-    public class UsuarioResponseDTO
+    public class UsuarioCreateDTO
     {
-        public int Id { get; set; }
-        
         public string Nome { get; set; } = string.Empty;
-
         public string Sobrenome { get; set; } = string.Empty;
-
         public int Idade { get; set; }
-
         public string Telefone { get; set; } = string.Empty;
-
         public string Email { get; set; } = string.Empty;
-
-        public DateTime DataCriacao {get; set; } = DateTime.Now;   
+        public string Senha { get; set; } = string.Empty;
     }
 }

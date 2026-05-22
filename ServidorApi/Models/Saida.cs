@@ -14,11 +14,11 @@ namespace ServidorApi.Models
 
         [Required]
         [Column ("valor_saida", TypeName = "decimal(10,2)")]
-        public decimal Valor_saida {get; set; }
+        public decimal ValorSaida {get; set; }
 
         [Required]
         [Column ("data_saida")]
-        public DateTime Data_saida {get; set; } = DateTime.Now;
+        public DateTime DataSaida {get; set; } = DateTime.Now;
 
         [Required]
         [Column ("id_conta")]

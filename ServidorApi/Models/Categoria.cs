@@ -12,8 +12,9 @@ namespace ServidorApi.Models
 
         [Column ("nome_categoria")]
         [StringLength(80)]
-        public string Nome {get; set; } = string.Empty;
+        public string categoria {get; set; } = string.Empty;
 
+        [Required]
         [Column ("tipo_categoria")]
         [StringLength(7)]
         public string Tipo {get; set; } = string.Empty;

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ServidorApi.Models
 {
     [Table ("tb_entrada")]
-    public class Entrada
+    public class Entradas
     {
         [Key]
         [Required]

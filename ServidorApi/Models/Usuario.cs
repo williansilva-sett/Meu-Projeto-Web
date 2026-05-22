@@ -8,7 +8,7 @@ namespace ServidorApi.Models
     {
         [Key]
         [Column ("id_usuario")]
-        public int UsuarioID {get; set; }
+        public int ID {get; set; }
 
         [Required]
         [Column ("nome_usuario")]
