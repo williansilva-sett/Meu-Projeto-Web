@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.brand {
+    margin-bottom: 30px;
+}
+
+.brand .logo-icon img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.brand h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+
+.login-card {
+    background-color: #ffffff;
+    border-radius: 40px;
+    padding: 40px 30px;
+    color: #333;
+}
+
+.login-card h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.login-card .subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+/* Campos de Input */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+    outline: none;
+}
+
+/* Botão de Login */
+.btn-login {
+    width: 100%;
+    background-color: #0B1F13; /* Verde bem escuro como na imagem */
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #153521;
+}
+
+/* Links Inferiores */
+.links {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Usando Poppins para fidelidade visual */
+}
+
+/* Corpo com fundo preto */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Evita rolagem horizontal em telas menores */
+}
+
+/* Container principal flexível */
+.main-container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px; /* Espaço entre as colunas */
+}
+
+/* Coluna da Marca (Esquerda) */
+.brand-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-logo {
+    max-width: 250x; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.brand-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Coluna do Formulário (Direita) */
+.form-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card branco do formulário */
+.form-card {
+    background-color: #ffffff;
+    padding: 50px 40px; /* Preenchimento generoso */
+    border-radius: 40px; /* Cantos bem arredondados */
+    color: #000000;
+    width: 100%;
+    max-width: 500px; /* Limitar a largura máxima do card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: #888888;
+    margin-bottom: 40px;
+}
+
+.card-subtitle a {
+    color: #888888;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Grupos de Entrada */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #A0A0A0; /* Cor cinza claro para os rótulos */
+    margin-bottom: 8px;
+    margin-left: 5px; /* Pequeno ajuste de margem */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #E6E6E6; /* Fundo cinza claro dos inputs */
+    border: none;
+    border-radius: 12px; /* Cantos arredondados nos inputs */
+    font-size: 1rem;
+    color: #555555;
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+/* Estilização do Placeholder */
+.input-group input::placeholder {
+    color: #A0A0A0; /* Cor do placeholder */
+    font-weight: 400;
+}
+
+/* Botão de Cadastro */
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #113F29; /* O verde escuro da marca */
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito de hover no botão */
+.submit-button:hover {
+    background-color: #1a5e3a; /* Tom ligeiramente mais claro */
+}
+
+/* Responsividade Básica (para tablets e celulares) */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 60px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .brand-column {
+        margin-bottom: 0px;
+    }
+
+    .brand-name {
+        font-size: 1.8rem;
+    }
+
+    .form-card {
+        padding: 40px 20px;
+        border-radius: 30px;
+    }
+}
+
+
+/*opa*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Marca */
+.brand-column {
+    text-align: center;
+}
+
+.brand-logo {
+    max-width: 500px;
+    margin-bottom: 15px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+/* Card Branco */
+.form-card {
+    background-color: #ffffff;
+    padding: 60px 50px;
+    border-radius: 60px; /* Cantos bem arredondados como na imagem */
+    color: #000000;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+/* Seções de Recuperação */
+.recovery-section {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.recovery-section label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.masked-info {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
+
+/* Botões Cinzas */
+.recovery-button {
+    background-color: #D9D9D9;
+    padding: 10px 15px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.recovery-button:hover {
+    transform: scale(1.02);
+}
+
+.recovery-button span {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.icon-circle {
+    background-color: #000;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon-circle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+    .brand-column { margin-bottom: 20px; }
+}
