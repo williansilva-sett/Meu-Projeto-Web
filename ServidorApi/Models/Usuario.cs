@@ -40,6 +40,10 @@ namespace ServidorApi.Models
         public string Senha {get; set; } = string.Empty;
 
         [Required]
+        [Column ("tipo_usuario")]
+        public TipoUsuario Tipo { get; set; } = TipoUsuario.Usuario;
+
+        [Required]
         [Column ("dataCriacao_usuario")]  
         public DateTime DataCriacao {get; set; } = DateTime.Now;
     }

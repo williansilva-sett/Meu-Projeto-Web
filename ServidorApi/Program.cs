@@ -6,6 +6,7 @@ using ServidorApi.Mappings;
 using FluentValidation.AspNetCore;
 using System.Reflection;
 using FluentValidation;
+using ServidorApi.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,6 +37,8 @@ builder.Services.AddSingleton<ISenhaHasher, SenhaHasher>();
 
     
 var app = builder.Build();
+
+await SeedAdminAsync(app);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -68,6 +71,41 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast");
 
 app.Run();
+
+static async Task SeedAdminAsync(WebApplication app)
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+    var senhaHasher = scope.ServiceProvider.GetRequiredService<ISenhaHasher>();
+    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+
+    var emailAdmin = config["AdminSeed:Email"];
+    if (string.IsNullOrWhiteSpace(emailAdmin))
+        return;
+
+    var jaExiste = await context.Usuarios.AnyAsync(u => u.Email == emailAdmin);
+    if (jaExiste)
+        return;
+
+    var senhaPlana = config["AdminSeed:Senha"];
+    if (string.IsNullOrWhiteSpace(senhaPlana))
+        return;
+
+    var admin = new Usuario
+    {
+        Nome = config["AdminSeed:Nome"] ?? "Admin",
+        Sobrenome = config["AdminSeed:Sobrenome"] ?? "Sistema",
+        Idade = int.TryParse(config["AdminSeed:Idade"], out var idade) ? idade : 30,
+        Telefone = config["AdminSeed:Telefone"] ?? "00000000000",
+        Email = emailAdmin,
+        Senha = senhaHasher.Hash(senhaPlana),
+        Tipo = TipoUsuario.Admin,
+        DataCriacao = DateTime.Now
+    };
+
+    context.Usuarios.Add(admin);
+    await context.SaveChangesAsync();
+}
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {

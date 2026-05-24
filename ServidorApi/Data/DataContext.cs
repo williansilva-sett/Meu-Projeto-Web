@@ -22,7 +22,7 @@ namespace ServidorApi.Data
         {
             base.OnModelCreating(modelBuilder);
             // Isso força o mapeamento "no grito" se o atributo [Table] falhar
-            modelBuilder.Entity<Entradas>().ToTable("tb_entrada"); 
+            modelBuilder.Entity<Entradas>().ToTable("tb_entrada");
         }
     }
 }
