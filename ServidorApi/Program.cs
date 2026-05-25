@@ -16,6 +16,7 @@ using ServidorApi.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 // Adicione o registro da Injeção de Dependência
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 
 // Configuração da conexão com o Banco de Dados (MySQL)
