@@ -4,6 +4,7 @@ using ServidorApi.Data;
 using ServidorApi.DTOs;
 using ServidorApi.Models;
 using ServidorApi.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ServidorApi.Controllers
 {
@@ -26,10 +27,12 @@ namespace ServidorApi.Controllers
         }
 
         [HttpPost("login")]
+        [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO dto) =>
             await LoginInternoAsync(dto, exigeAdmin: false);
 
         [HttpPost("login-admin")]
+        [AllowAnonymous]
         public async Task<IActionResult> LoginAdmin([FromBody] LoginRequestDTO dto) =>
             await LoginInternoAsync(dto, exigeAdmin: true);
 

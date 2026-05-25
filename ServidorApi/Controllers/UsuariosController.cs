@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ServidorApi.DTOs;
 using ServidorApi.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ServidorApi.Controllers
 {
@@ -17,13 +18,17 @@ namespace ServidorApi.Controllers
             _usuarioService = usuarioService;
         }
 
+
+        // 🔒 Só Admin
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll() 
         {
             return Ok(await _usuarioService.ListarTodos());
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetById(int id) 
         {
             var usuario = await _usuarioService.BuscarPorId(id);
@@ -39,6 +44,7 @@ namespace ServidorApi.Controllers
         }
 
         [HttpGet("filtrar")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetFiltrado([FromQuery] UsuarioResponseDTO request)
         {
             // O .NET vai usar o validador automaticamente se estiver registrado no Program.cs
@@ -46,6 +52,7 @@ namespace ServidorApi.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([FromBody]UsuarioCreateDTO dto) 
         {
             // 1. Validamos manualmente aqui
@@ -64,6 +71,7 @@ namespace ServidorApi.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> Update(int id, [FromBody] UsuarioUpDateDTO dto)
         {
             await _usuarioService.Atualizar(id, dto);
