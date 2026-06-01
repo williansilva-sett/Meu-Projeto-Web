@@ -4,7 +4,7 @@ using ServidorApi.Services.Interfaces;
 using ServidorApi.Services;
 using ServidorApi.Mappings;
 using FluentValidation.AspNetCore;
-using System.Reflection;
+using Microsoft.Extensions.FileProviders;
 using FluentValidation;
 using ServidorApi.Models;
 using System.Text;
@@ -96,11 +96,30 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+// CORS — permite que o frontend acesse a API
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            // Origens permitidas: API servindo os arquivos + Live Server do VS Code
+            .WithOrigins(
+                "http://localhost:5079",   // Sua API (arquivos estáticos)
+                "http://127.0.0.1:5500",  // Live Server padrão do VS Code
+                "http://localhost:5500"    // Live Server alternativo
+            )
+            .AllowAnyHeader()  // Permite qualquer header (incluindo Authorization: Bearer)
+            .AllowAnyMethod(); // Permite GET, POST, PUT, PATCH, DELETE
+    });
+});
+
     
 var app = builder.Build();
 
 await SeedAdminAsync(app);
 
+app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseCors("Frontend"); // ← adicionar aqui
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -110,6 +129,15 @@ if (app.Environment.IsDevelopment())
 
 if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
+
+// Serve arquivos da pasta ../Cliente relativa ao projeto
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "..", "Cliente")
+    ),
+    RequestPath = "/Cliente" // URL de acesso: http://localhost:5079/Cliente/...
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
