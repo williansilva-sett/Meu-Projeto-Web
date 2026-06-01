@@ -50,6 +50,14 @@ namespace ServidorApi.Models
         [Required]
         [Column("ativo_usuario")]
         public bool Ativo { get; set; } = true; // Novos usuários nascem ativos por padrão
+        // Contador de tentativas de login falhas consecutivas
+        // Volta a zero após login bem-sucedido ou após o bloqueio expirar
+        [Column("tentativas_login")]
+        public int TentativasLogin { get; set; } = 0;
+        // Data/hora até quando a conta está bloqueada
+        // null = conta liberada | com valor = bloqueada até aquele momento
+        [Column("bloqueado_ate")]
+        public DateTime? BloqueadoAte { get; set; }
 
         public virtual ICollection<Conta> Contas { get; set; } = new List<Conta>();
     }
