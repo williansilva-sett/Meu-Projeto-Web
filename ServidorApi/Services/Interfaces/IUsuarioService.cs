@@ -9,5 +9,6 @@ namespace ServidorApi.Services.Interfaces
         Task<UsuarioResponseDTO> Criar(UsuarioCreateDTO usuarioDto); // Adicione este
         Task Atualizar(int id, UsuarioUpDateDTO usuarioDto); // Adicione este
         Task Deletar(int id); // Adicione este
+        Task<bool> AlterarSenha(int usuarioId, UsuarioAlterarSenhaDTO dto); // Verifica a senha atual antes de permitir a alteração
     }
 }

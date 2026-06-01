@@ -77,5 +77,26 @@ namespace ServidorApi.Controllers
             await _usuarioService.Atualizar(id, dto);
             return NoContent();
         }
+
+        // PUT /api/usuarios/alterar-senha
+        // Rota protegida — o ID do usuário vem do token, não da URL
+        // Evita que um usuário altere a senha de outro
+        [HttpPut("alterar-senha")]
+        [Authorize]
+        public async Task<IActionResult> AlterarSenha([FromBody] UsuarioAlterarSenhaDTO dto)
+        {
+            // Extrai o ID do usuário do token JWT (claim NameIdentifier)
+            var idClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+            if (idClaim is null || !int.TryParse(idClaim, out var usuarioId))
+                return Unauthorized();
+
+            var sucesso = await _usuarioService.AlterarSenha(usuarioId, dto);
+
+            if (!sucesso)
+                return BadRequest(new { mensagem = "Senha atual incorreta." });
+
+            return NoContent(); // 204 — alterado com sucesso
+        }
     }
 }
