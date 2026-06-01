@@ -46,5 +46,13 @@ namespace ServidorApi.Models
         [Required]
         [Column ("dataCriacao_usuario")]  
         public DateTime DataCriacao {get; set; } = DateTime.Now;
+
+        [Required]
+        [Column("ativo_usuario")]
+        public bool Ativo { get; set; } = true; // Novos usuários nascem ativos por padrão
+
+        public virtual ICollection<Conta> Contas { get; set; } = new List<Conta>();
     }
+
+    
 }

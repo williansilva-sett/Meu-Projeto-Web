@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ServidorApi.Data;
 
@@ -11,9 +12,11 @@ using ServidorApi.Data;
 namespace ServidorApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260530021023_AddCamposBloqueio")]
+    partial class AddCamposBloqueio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,10 +191,6 @@ namespace ServidorApi.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<bool>("Ativo")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("ativo_usuario");
-
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("dataCriacao_usuario");
@@ -242,7 +241,7 @@ namespace ServidorApi.Migrations
             modelBuilder.Entity("ServidorApi.Models.Conta", b =>
                 {
                     b.HasOne("ServidorApi.Models.Usuario", "Usuario")
-                        .WithMany("Contas")
+                        .WithMany()
                         .HasForeignKey("UsuarioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -297,11 +296,6 @@ namespace ServidorApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Conta");
-                });
-
-            modelBuilder.Entity("ServidorApi.Models.Usuario", b =>
-                {
-                    b.Navigation("Contas");
                 });
 #pragma warning restore 612, 618
         }
