@@ -1,9 +1,12 @@
 using ServidorApi.Models;
-
+ 
 namespace ServidorApi.Services.Interfaces
 {
     public interface IJwtTokenService
     {
-        (string Token, DateTime ExpiraEm) GerarToken(Usuario usuario);
+        // Recebe a Conta de sistema (que contém email, tipo, id)
+        // e os dados pessoais via navegação conta.Usuario
+        (string Token, DateTime ExpiraEm) GerarToken(Conta conta);
     }
 }
+ 

@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ServidorApi.Models;
-
+ 
 namespace ServidorApi.Data
 {
     public class DataContext : DbContext
@@ -8,21 +8,31 @@ namespace ServidorApi.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-
-        // Mapeamento da tabela de usuários
+ 
         public DbSet<Usuario> Usuarios { get; set; }
+ 
+        // Agora representa conta de sistema, não conta financeira
         public DbSet<Conta> Contas { get; set; }
-        public DbSet<Saldo_Conta> SaldoContas { get; set; }
+ 
         public DbSet<Entradas> Entrada { get; set; }
         public DbSet<Saida> Saidas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
-    
-        // As próximas tabelas (Conta, Entrada, Saida) você adicionará aqui embaixo
+ 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            // Isso força o mapeamento "no grito" se o atributo [Table] falhar
+ 
+            // Mantém o mapeamento explícito da tabela de entrada
             modelBuilder.Entity<Entradas>().ToTable("tb_entrada");
+ 
+            // Configura relação 1 para 1 entre Usuario e Conta
+            // Um usuário tem exatamente uma conta de sistema
+            modelBuilder.Entity<Usuario>()
+                .HasOne(u => u.Conta)               // Usuario tem uma Conta
+                .WithOne(c => c.Usuario)             // Conta pertence a um Usuario
+                .HasForeignKey<Conta>(c => c.UsuarioID) // FK está em Conta
+                .OnDelete(DeleteBehavior.Cascade);   // Deletar usuário deleta a conta
         }
     }
 }
+ 
