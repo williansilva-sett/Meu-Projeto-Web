@@ -33,6 +33,14 @@ namespace ServidorApi.Mappings
             // IDConta removido — mapeamento agora usa IDUsuario
             CreateMap<Saida, SaidaResponseDTO>().ReverseMap();
             CreateMap<SaidaUpdateDTO, Saida>();
+
+            // ── META ─────────────────────────────────────────────────────────    
+            CreateMap<Meta, MetaResponseDTO>()
+                .ForMember(d => d.Status, o => o.MapFrom(m => m.Status.ToString()));
+            CreateMap<MetaCreateDTO, Meta>()
+                .ForMember(d => d.Status, o => o.Ignore()) // Status definido no service
+                .ForMember(d => d.ID,     o => o.Ignore());
+            CreateMap<MetaUpdateDTO, Meta>();
         }
     }
 }

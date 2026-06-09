@@ -17,6 +17,7 @@ namespace ServidorApi.Data
         public DbSet<Entradas> Entrada { get; set; }
         public DbSet<Saida> Saidas { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Meta> Metas { get; set; }
  
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

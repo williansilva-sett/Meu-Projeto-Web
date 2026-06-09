@@ -20,9 +20,9 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IEntradaService, EntradaService>();
 builder.Services.AddScoped<ISaidaService, SaidaService>();
 builder.Services.AddScoped<ICategoriaService, CategoriaService>();
-// IContaService removido — ContaService era para conta financeira que não existe mais
 builder.Services.AddSingleton<ISenhaHasher, SenhaHasher>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<IMetaService, MetaService>();
  
 // ── BANCO DE DADOS ────────────────────────────────────────────────────────────
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
