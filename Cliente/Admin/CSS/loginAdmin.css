@@ -1,0 +1,234 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+:root {
+    --verde-escuro: #0f3d20;
+    --verde-medio:  #1a5c32;
+    --verde-claro:  #e8f5ed;
+    --branco:       #ffffff;
+    --cinza-100:    #f8f9fa;
+    --cinza-200:    #e9ecef;
+    --cinza-400:    #adb5bd;
+    --cinza-600:    #6c757d;
+    --cinza-800:    #343a40;
+    --vermelho:     #e74c3c;
+    --radius:       8px;
+    --font:         'Inter', system-ui, sans-serif;
+}
+ 
+body {
+    font-family: var(--font);
+    background: var(--verde-escuro);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(26,92,50,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(26,92,50,0.3) 0%, transparent 50%);
+}
+ 
+/* ── WRAPPER ──────────────────────────────────────────────────────────────── */
+.login-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 860px;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+ 
+/* ── LADO ESQUERDO — BRAND ────────────────────────────────────────────────── */
+.login-brand {
+    background: var(--verde-medio);
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+ 
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 48px;
+}
+ 
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+ 
+.brand-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+ 
+.brand-desc {
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 1.6;
+}
+ 
+.brand-footer {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-top: 48px;
+}
+ 
+/* ── LADO DIREITO — FORMULÁRIO ────────────────────────────────────────────── */
+.login-form-area {
+    background: var(--branco);
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ 
+.form-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cinza-800);
+    margin-bottom: 6px;
+}
+ 
+.form-subtitle {
+    font-size: 13px;
+    color: var(--cinza-400);
+    margin-bottom: 32px;
+}
+ 
+.form-group { margin-bottom: 18px; }
+ 
+.form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cinza-600);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+ 
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--cinza-200);
+    border-radius: var(--radius);
+    font-size: 14px;
+    color: var(--cinza-800);
+    font-family: var(--font);
+    transition: border-color 0.15s;
+    outline: none;
+}
+ 
+.form-control:focus {
+    border-color: var(--verde-medio);
+    box-shadow: 0 0 0 3px rgba(26,92,50,0.1);
+}
+ 
+/* Campo de senha com ícone */
+.input-wrapper { position: relative; }
+.input-wrapper .form-control { padding-right: 40px; }
+ 
+.toggle-senha {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--cinza-400);
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+}
+ 
+.toggle-senha:hover { color: var(--cinza-600); }
+ 
+/* ── BOTÃO LOGIN ──────────────────────────────────────────────────────────── */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--verde-medio);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+ 
+.btn-login:hover:not(:disabled) { background: var(--verde-escuro); }
+.btn-login:disabled { opacity: 0.6; cursor: not-allowed; }
+ 
+/* ── MENSAGEM DE ERRO ─────────────────────────────────────────────────────── */
+.erro-msg {
+    background: #fdecea;
+    color: #c0392b;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    font-size: 13px;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--vermelho);
+}
+ 
+/* ── SPINNER ──────────────────────────────────────────────────────────────── */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+ 
+/* ── UTILITÁRIO ───────────────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+ 
+/* ── RESPONSIVO ───────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .login-wrapper { grid-template-columns: 1fr; }
+    .login-brand   { display: none; }
+    .login-form-area { padding: 32px 24px; }
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+}
+

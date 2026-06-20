@@ -182,38 +182,42 @@ namespace ServidorApi.Services
         {
             if (filtro.Page < 1) filtro.Page = 1;
             if (filtro.PageSize < 1 || filtro.PageSize > 100) filtro.PageSize = 20;
- 
+        
             var tipo = filtro.Tipo.ToLower().Trim();
- 
-            // Entradas e Saídas ainda referenciam IDConta — será ajustado na Etapa 5
+        
+            // CORREÇÃO: incluído Include(e => e.Usuario) — antes só tinha Categoria,
+            // por isso NomeUsuario saía sempre como string.Empty (hardcoded).
             var entradasQuery = _context.Entrada
                 .AsNoTracking()
                 .Include(e => e.Categoria)
+                .Include(e => e.Usuario)
                 .AsQueryable();
- 
+        
             if (filtro.DataInicio.HasValue)
                 entradasQuery = entradasQuery
                     .Where(e => e.Data >= filtro.DataInicio.Value);
- 
+        
             if (filtro.DataFim.HasValue)
                 entradasQuery = entradasQuery
                     .Where(e => e.Data <= filtro.DataFim.Value.Date.AddDays(1).AddTicks(-1));
- 
+        
+            // CORREÇÃO: mesmo Include adicionado para Saidas
             var saidasQuery = _context.Saidas
                 .AsNoTracking()
                 .Include(s => s.Categoria)
+                .Include(s => s.Usuario)
                 .AsQueryable();
- 
+        
             if (filtro.DataInicio.HasValue)
                 saidasQuery = saidasQuery
                     .Where(s => s.DataSaida >= filtro.DataInicio.Value);
- 
+        
             if (filtro.DataFim.HasValue)
                 saidasQuery = saidasQuery
                     .Where(s => s.DataSaida <= filtro.DataFim.Value.Date.AddDays(1).AddTicks(-1));
- 
+        
             List<TransacaoAdminDTO> transacoes = new();
- 
+        
             if (tipo == "entrada" || tipo == "todos")
             {
                 var entradas = await entradasQuery
@@ -228,14 +232,18 @@ namespace ServidorApi.Services
                         IdCategoria   = e.IDCategoria,
                         NomeCategoria = e.Categoria!.categoria,
                         Descricao     = e.Descricao,
-                        IdUsuario     = 0,
-                        NomeUsuario   = string.Empty
+                        // CORREÇÃO: populado a partir do Usuario incluído acima.
+                        // IDUsuario é o nome do campo FK no model Entrada (ver Models/Entradas.cs)
+                        IdUsuario     = e.IDUsuario,
+                        NomeUsuario   = e.Usuario != null
+                            ? $"{e.Usuario.Nome} {e.Usuario.Sobrenome}"
+                            : "Usuário removido"
                     })
                     .ToListAsync();
- 
+        
                 transacoes.AddRange(entradas);
             }
- 
+        
             if (tipo == "saida" || tipo == "todos")
             {
                 var saidas = await saidasQuery
@@ -250,22 +258,25 @@ namespace ServidorApi.Services
                         IdCategoria   = s.IDCategoria,
                         NomeCategoria = s.Categoria!.categoria,
                         Descricao     = null,
-                        IdUsuario     = 0,
-                        NomeUsuario   = string.Empty
+                        // CORREÇÃO: mesmo padrão para Saida
+                        IdUsuario     = s.IDUsuario,
+                        NomeUsuario   = s.Usuario != null
+                            ? $"{s.Usuario.Nome} {s.Usuario.Sobrenome}"
+                            : "Usuário removido"
                     })
                     .ToListAsync();
- 
+        
                 transacoes.AddRange(saidas);
             }
- 
+        
             var totalItens = transacoes.Count;
- 
+        
             var itensPaginados = transacoes
                 .OrderByDescending(t => t.Data)
                 .Skip((filtro.Page - 1) * filtro.PageSize)
                 .Take(filtro.PageSize)
                 .ToList();
- 
+        
             return new PaginadoDTO<TransacaoAdminDTO>
             {
                 Itens         = itensPaginados,
