@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f6f8f7;
+    color: #13213a;
+}
+
+/* NAVBAR */
+
+header {
+    background: linear-gradient(90deg, #024b2c, #012c1d);
+    padding: 20px 5%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo i {
+    font-size: 32px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    color: white;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white; /* ou a cor desejada */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu li a:hover {
+    color: #16a34a;
+}
+
+.active {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 18px;
+    border-radius: 12px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-register {
+    background: #16a34a;
+    color: white;
+}
+
+/* Conteúdo */
+.contato-container {
+    width: 90%;
+    margin: 50px auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+}
+
+/* Lado esquerdo */
+.informacoes {
+    flex: 1;
+}
+
+.informacoes h1 {
+    font-size: 60px;
+    color: #07124b;
+    margin-bottom: 25px;
+}
+
+.informacoes p {
+    font-size: 28px;
+    color: #444;
+    line-height: 50px;
+    margin-bottom: 60px;
+}
+
+.info-item {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 45px;
+}
+
+.icone {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e9f8ee;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone i {
+    color: #0b8d43;
+    font-size: 35px;
+}
+
+.info-item h3 {
+    color: #07124b;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.info-item span {
+    font-size: 25px;
+    color: #444;
+}
+
+.email-ilustracao {
+    margin-top: 80px;
+    font-size: 180px;
+    color: #0b8d43;
+    opacity: .2;
+}
+
+/* Formulário */
+.formulario {
+    width: 600px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.formulario h2 {
+    color: #07124b;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 20px;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.formulario textarea {
+    height: 180px;
+    resize: none;
+}
+
+.formulario button {
+    width: 100%;
+    background: #008f3f;
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.formulario button i {
+    margin-right: 10px;
+}
+
+.formulario button:hover {
+    background: #007135;
+}

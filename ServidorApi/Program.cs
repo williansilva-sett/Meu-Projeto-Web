@@ -115,6 +115,7 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
  
 await SeedAdminAsync(app);
+await SeedCategoriasGlobaisAsync(app);
  
 app.UseMiddleware<ErrorHandlingMiddleware>();
 app.UseCors("Frontend");
@@ -128,12 +129,25 @@ if (app.Environment.IsDevelopment())
 if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
  
-app.UseStaticFiles(new StaticFileOptions
+var adminDir = Path.Combine(builder.Environment.ContentRootPath, "..", "Frontend", "Admin");
+if (Directory.Exists(adminDir))
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(builder.Environment.ContentRootPath, "..", "Cliente")),
-    RequestPath = "/Cliente"
-});
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(adminDir),
+        RequestPath = "/Admin"
+    });
+}
+ 
+var clienteDir = Path.Combine(builder.Environment.ContentRootPath, "..", "Frontend", "Cliente");
+if (Directory.Exists(clienteDir))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(clienteDir),
+        RequestPath = "/Cliente"
+    });
+}
  
 app.UseAuthentication();
 app.UseAuthorization();
@@ -184,8 +198,41 @@ static async Task SeedAdminAsync(WebApplication app)
     context.Contas.Add(contaAdmin);
     await context.SaveChangesAsync();
 }
+
+static async Task SeedCategoriasGlobaisAsync(WebApplication app)
+{
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<DataContext>();
+
+    var jaExiste = await context.Categorias.AnyAsync(c => c.IDUsuario == null);
+    if (jaExiste) return;
+
+    var categoriasGlobais = new List<Categoria>
+    {
+        new() { categoria = "Salário", Tipo = TipoCategoria.Entrada },
+        new() { categoria = "Freelance", Tipo = TipoCategoria.Entrada },
+        new() { categoria = "Investimentos", Tipo = TipoCategoria.Entrada },
+        new() { categoria = "Reembolso", Tipo = TipoCategoria.Entrada },
+        new() { categoria = "Outras receitas", Tipo = TipoCategoria.Entrada },
+
+        new() { categoria = "Alimentação", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Moradia", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Contas", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Transporte", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Saúde", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Educação", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Lazer", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Vestuário", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Assinaturas", Tipo = TipoCategoria.Saida },
+        new() { categoria = "Outras despesas", Tipo = TipoCategoria.Saida },
+    };
+
+    context.Categorias.AddRange(categoriasGlobais);
+    await context.SaveChangesAsync();
+}
  
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+

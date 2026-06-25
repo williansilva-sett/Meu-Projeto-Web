@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ServidorApi.DTOs;
 using ServidorApi.Services.Interfaces;
+using System.Security.Claims;
 
 namespace ServidorApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize] // Todos os endpoints exigem token válido — usuário ou admin
+    [Authorize]
     public class SaidaController : ControllerBase
     {
         private readonly ISaidaService _saidaService;
@@ -17,9 +18,19 @@ namespace ServidorApi.Controllers
             _saidaService = saidaService;
         }
 
+        private int ObterUsuarioId()
+        {
+            var claim = User.FindFirstValue("usuarioId");
+            return int.TryParse(claim, out var id) ? id : 0;
+        }
+
+        private bool EhAdmin() => User.IsInRole("Admin");
+
         [HttpPost]
         public async Task<IActionResult> Create(SaidaResponseDTO dto)
         {
+            dto.IDUsuario = ObterUsuarioId();
+
             var validator = new SaidaValidator();
             var validationResult = await validator.ValidateAsync(dto);
 
@@ -38,12 +49,23 @@ namespace ServidorApi.Controllers
             if (saida == null)
                 return NotFound("Saída não encontrada.");
 
+            if (saida.IDUsuario != ObterUsuarioId() && !EhAdmin())
+                return Forbid();
+
             return Ok(saida);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            var saida = await _saidaService.BuscarPorId(id);
+
+            if (saida == null)
+                return NotFound("Saída não encontrada.");
+
+            if (saida.IDUsuario != ObterUsuarioId() && !EhAdmin())
+                return Forbid();
+
             await _saidaService.Deletar(id);
             return NoContent();
         }
@@ -51,6 +73,14 @@ namespace ServidorApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] SaidaUpdateDTO dto)
         {
+            var saida = await _saidaService.BuscarPorId(id);
+
+            if (saida == null)
+                return NotFound("Saída não encontrada.");
+
+            if (saida.IDUsuario != ObterUsuarioId() && !EhAdmin())
+                return Forbid();
+
             await _saidaService.Atualizar(id, dto);
             return NoContent();
         }
@@ -58,7 +88,13 @@ namespace ServidorApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _saidaService.ListarTodos());
+            var todas = await _saidaService.ListarTodos();
+
+            if (EhAdmin())
+                return Ok(todas);
+
+            var usuarioId = ObterUsuarioId();
+            return Ok(todas.Where(s => s.IDUsuario == usuarioId));
         }
     }
 }

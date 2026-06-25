@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f6f8f7;
+    color: #13213a;
+}
+
+/* NAVBAR */
+
+header {
+    background: linear-gradient(90deg, #024b2c, #012c1d);
+    padding: 20px 5%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo i {
+    font-size: 32px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    color: white;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white; /* ou a cor desejada */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu li a:hover {
+    color: #16a34a;
+}
+
+.active {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 18px;
+    border-radius: 12px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-login {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.btn-register {
+    background: #16a34a;
+    color: white;
+}
+
+/* Conteúdo */
+
+.container {
+    width: 90%;
+    margin: 50px auto;
+}
+
+/* Topo */
+
+.topo-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.passos {
+    flex: 1;
+}
+
+.passos h1 {
+    font-size: 65px;
+    color: #07124b;
+    margin-bottom: 20px;
+}
+
+.passos p {
+    font-size: 30px;
+    color: #444;
+    margin-bottom: 60px;
+}
+
+.etapa {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.numero {
+    width: 80px;
+    height: 80px;
+    background: #eef8f1;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #008f3f;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.etapa h3 {
+    font-size: 38px;
+    color: #07124b;
+    margin-bottom: 8px;
+}
+
+.etapa span {
+    font-size: 26px;
+    color: #555;
+}
+
+/* Ilustração */
+
+.ilustracao {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.ilustracao i {
+    color: #0b8d43;
+    opacity: .15;
+}
+
+.fa-chart-pie {
+    font-size: 220px;
+}
+
+.fa-wallet {
+    font-size: 180px;
+}
+
+/* Card inferior */
+
+.card-info {
+    margin-top: 80px;
+    background: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 20px;
+
+    padding: 35px 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.icone-card {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #67c487;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-card i {
+    font-size: 55px;
+    color: #0b8d43;
+}
+
+.texto-card h2 {
+    color: #0b8d43;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.texto-card p {
+    color: #444;
+    font-size: 30px;
+}

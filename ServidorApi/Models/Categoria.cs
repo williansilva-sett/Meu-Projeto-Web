@@ -16,7 +16,9 @@ namespace ServidorApi.Models
 
         [Required]
         [Column ("tipo_categoria")]
-        [StringLength(7)]
-        public string Tipo {get; set; } = string.Empty;
+        public TipoCategoria Tipo { get; set; }
+        
+        [Column ("id_usuario")]
+        public int? IDUsuario { get; set; }
     }
 }

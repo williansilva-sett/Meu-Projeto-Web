@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Viva Finanças</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/CSS/home.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-chart-column"></i>
+            <h2>VIVA FINANÇAS</h2>
+        </div>
+
+        <nav>
+
+            <a href="#" class="item-menu">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </a>
+
+            <a href="#" class="item-menu ativo">
+                <i class="fa-solid fa-chart-column"></i>
+                Relatórios
+            </a>
+
+            <a href="#" class="item-menu">
+                <i class="fa-regular fa-user"></i>
+                Perfil do Usuário
+            </a>
+
+            <a href="#" class="item-menu">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
+
+        </nav>
+
+        <a href="#" class="sair">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            Sair
+        </a>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <main class="conteudo">
+
+        <!-- TOPO -->
+        <header class="topo">
+
+            <div>
+                <h1>Relatórios Mensais</h1>
+                <p>Acompanhe sua evolução financeira.</p>
+            </div>
+
+            <div class="acoes-topo">
+
+                <button class="periodo">
+                    <i class="fa-regular fa-calendar"></i>
+                    01/05/2024 - 31/05/2024
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <button class="exportar">
+                    <i class="fa-solid fa-download"></i>
+                    Exportar
+                </button>
+
+                <div class="notificacao">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </div>
+
+                <div class="usuario">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Jiara Martins</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- CARDS -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Receitas totais</h3>
+
+                <h2 class="verde">
+                    R$ 8.500,00
+                </h2>
+
+                <p>no período</p>
+
+                <div class="variacao">
+                    <span class="verde">
+                        ↑ 12%
+                    </span>
+
+                    <small>vs. mês anterior</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Despesas totais</h3>
+
+                <h2 class="vermelho">
+                    R$ 3.220,00
+                </h2>
+
+                <p>no período</p>
+
+                <div class="variacao">
+                    <span class="vermelho">
+                        ↓ 8%
+                    </span>
+
+                    <small>vs. mês anterior</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Saldo do período</h3>
+
+                <h2 class="verde">
+                    R$ 5.280,00
+                </h2>
+
+                <p>no período</p>
+
+                <div class="variacao">
+                    <span class="verde">
+                        ↑ 18%
+                    </span>
+
+                    <small>vs. mês anterior</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Economia</h3>
+
+                <h2 class="verde">
+                    62%
+                </h2>
+
+                <p>do que ganhou</p>
+            </div>
+
+        </section>
+
+        <!-- GRÁFICOS -->
+        <section class="graficos">
+
+            <div class="grafico-card">
+
+                <div class="titulo-grafico">
+                    <h3>Receitas x Despesas</h3>
+
+                    <select>
+                        <option>Diário</option>
+                    </select>
+                </div>
+
+                <canvas id="linha"></canvas>
+
+            </div>
+
+            <div class="grafico-card">
+
+                <h3>Distribuição de Despesas</h3>
+
+                <div class="pizza-container">
+
+                    <canvas id="pizza"></canvas>
+
+                    <div class="legenda">
+
+                        <div>
+                            <span class="azul"></span>
+                            Moradia
+                            <strong>40%</strong>
+                        </div>
+
+                        <div>
+                            <span class="verde2"></span>
+                            Alimentação
+                            <strong>25%</strong>
+                        </div>
+
+                        <div>
+                            <span class="amarelo"></span>
+                            Transporte
+                            <strong>15%</strong>
+                        </div>
+
+                        <div>
+                            <span class="roxo"></span>
+                            Lazer
+                            <strong>10%</strong>
+                        </div>
+
+                        <div>
+                            <span class="cinza"></span>
+                            Outros
+                            <strong>10%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TABELA -->
+        <section class="baixo">
+
+            <div class="tabela-card">
+
+                <h3>Resumo por categoria</h3>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Receitas</th>
+                            <th>Despesas</th>
+                            <th>Saldo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Moradia</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 1.280,00</td>
+                            <td class="vermelho">- R$ 1.280,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Alimentação</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 805,00</td>
+                            <td class="vermelho">- R$ 805,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Transporte</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 483,00</td>
+                            <td class="vermelho">- R$ 483,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Lazer</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 322,00</td>
+                            <td class="vermelho">- R$ 322,00</td>
+                        </tr>
+
+                        <tr>
+                            <td>Outros</td>
+                            <td>R$ 0,00</td>
+                            <td>R$ 330,00</td>
+                            <td class="vermelho">- R$ 330,00</td>
+                        </tr>
+
+                        <tr class="total">
+                            <td>Total</td>
+                            <td class="verde">R$ 8.500,00</td>
+                            <td class="vermelho">R$ 3.220,00</td>
+                            <td class="verde">R$ 5.280,00</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- TOP CATEGORIAS -->
+            <div class="categorias-card">
+
+                <h3>Top categorias</h3>
+
+                <div class="categoria">
+                    <span>Moradia</span>
+                    <div class="barra"><div class="p40"></div></div>
+                    <strong>R$ 1.280,00 (40%)</strong>
+                </div>
+
+                <div class="categoria">
+                    <span>Alimentação</span>
+                    <div class="barra"><div class="p25"></div></div>
+                    <strong>R$ 805,00 (25%)</strong>
+                </div>
+
+                <div class="categoria">
+                    <span>Transporte</span>
+                    <div class="barra"><div class="p15"></div></div>
+                    <strong>R$ 483,00 (15%)</strong>
+                </div>
+
+                <div class="categoria">
+                    <span>Lazer</span>
+                    <div class="barra"><div class="p10"></div></div>
+                    <strong>R$ 322,00 (10%)</strong>
+                </div>
+
+                <div class="categoria">
+                    <span>Outros</span>
+                    <div class="barra"><div class="p10c"></div></div>
+                    <strong>R$ 330,00 (10%)</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/Javascript/home.js"></script>
+
+</body>
+</html>

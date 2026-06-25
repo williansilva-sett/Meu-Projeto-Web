@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Controla o tema (claro/escuro/sistema) do app e lembra a escolha do
-/// usuário entre uma sessão e outra usando shared_preferences.
-///
-/// ATENÇÃO: usa o pacote `shared_preferences`, que ainda não está no
-/// pubspec.yaml. Adicione: shared_preferences: ^2.2.0
+
 class ThemeProvider extends ChangeNotifier {
   static const _prefKey = 'viva_financas_theme_mode';
 
