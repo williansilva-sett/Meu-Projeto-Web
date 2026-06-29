@@ -2,7 +2,7 @@
 // Utilitários compartilhados por todas as páginas admin
 
 const API_BASE   = 'http://localhost:5079';
-const ADMIN_BASE = '/Cliente/Admin/HTML';
+const ADMIN_BASE = '/Frontend/Admin/HTML';
 
 // ── TOKEN ──────────────────────────────────────────────────────────────────
 

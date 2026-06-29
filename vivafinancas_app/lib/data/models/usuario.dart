@@ -1,4 +1,6 @@
 /// Espelha o UsuarioResponseDTO real da API.
+///
+/// ATENÇÃO: ainda sem o campo Apelido (pendência já conhecida).
 class Usuario {
   final int id;
   final String nome;
@@ -44,7 +46,6 @@ class Usuario {
 }
 
 /// Espelha o UsuarioCreateDTO - payload enviado no cadastro.
-
 class UsuarioCreateRequest {
   final String nome;
   final String sobrenome;

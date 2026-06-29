@@ -1,6 +1,10 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-
+/// Responsável por persistir o token JWT de forma segura (criptografado),
+/// usando Keychain no iOS e EncryptedSharedPreferences no Android.
+///
+/// Nunca guardamos o token em SharedPreferences puro - lá fica em texto
+/// plano e qualquer app com acesso ao storage do dispositivo conseguiria ler.
 class TokenStorage {
   TokenStorage._();
   static final TokenStorage instance = TokenStorage._();
@@ -34,7 +38,7 @@ class TokenStorage {
     return token != null && token.isNotEmpty;
   }
 
-
+  /// Limpa tudo - usado no logout ou quando o token expira (401).
   Future<void> clear() async {
     await _storage.delete(key: _tokenKey);
     await _storage.delete(key: _userIdKey);

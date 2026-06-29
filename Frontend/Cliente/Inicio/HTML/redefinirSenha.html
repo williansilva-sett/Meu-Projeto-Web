@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Finanças - Redefinir Senha</title>
+    <link rel="stylesheet" href="/Inicio/HTML/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="brand-column">
+            <img src="/img/logo.png" alt="Logo Viva Finanças" class="brand-logo">
+        </div>
+
+        <div class="form-column">
+            <div class="form-card">
+                <h2 class="card-title">Criar nova<br>senha</h2>
+                <p class="card-subtitle">Escolha uma nova senha para sua conta.</p>
+
+                <form id="form-redefinir">
+                    <div class="input-group">
+                        <label for="senha">NOVA SENHA</label>
+                        <input type="password" id="senha" name="senha" placeholder="******" required minlength="6">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmar-senha">CONFIRMAR SENHA</label>
+                        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="******" required minlength="6">
+                    </div>
+
+                    <button type="submit" class="submit-button">Redefinir senha</button>
+                </form>
+
+                <p class="card-subtitle" id="mensagem-erro-token" style="display:none; margin-top: 20px; color: #c0392b;">
+                    Link inválido ou expirado. <a href="/Inicio/HTML/esqueciasenha.html">Solicite um novo aqui</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Inicio/HTML/Javascript/api-client.js"></script>
+    <script src="/Inicio/HTML/Javascript/auth.js"></script>
+    <script src="/Inicio/HTML/Javascript/redefinir-senha.js"></script>
+</body>
+</html>

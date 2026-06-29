@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-
+/// Decodifica o payload do JWT no cliente, sem validar assinatura
+/// (a validação de verdade é feita pela API a cada requisição).
+/// Usado só pra ler dados que já vieram autenticados, como o usuarioId.
 class JwtHelper {
   JwtHelper._();
 
@@ -14,7 +16,9 @@ class JwtHelper {
     return jsonDecode(payloadJson) as Map<String, dynamic>;
   }
 
-
+  /// Extrai a claim customizada "usuarioId" (conta.UsuarioID no backend) -
+  /// é esse o ID usado em GET/PUT /api/usuarios/{id}, não o NameIdentifier
+  /// (que é o ID da Conta de sistema, um valor diferente).
   static int? extrairUsuarioId(String token) {
     try {
       final payload = decodePayload(token);

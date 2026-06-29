@@ -1,0 +1,39 @@
+# Query: /Frontend/Cliente/Inicio/HTML/CSS/
+# ContextLines: 1
+
+7 results - 7 files
+
+Frontend\Cliente\Inicio\HTML\cadastro.html:
+  7      <title>Viva Finanças - Cadastro</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/style.css">
+  9      <link rel="preconnect" href="https://fonts.googleapis.com">
+
+Frontend\Cliente\Inicio\HTML\comofunciona.html:
+  7      <title>Viva Finanças - Cadastro</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/comofunciona.css">
+  9  
+
+Frontend\Cliente\Inicio\HTML\faleconosco.html:
+  7      <title>Viva Finanças</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/faleconosco.css">
+  9  
+
+Frontend\Cliente\Inicio\HTML\faq.html:
+  7      <title>Viva Finanças - Cadastro</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/faq.css">
+  9  
+
+Frontend\Cliente\Inicio\HTML\home.html:
+  7      <title>Viva Finanças - Cadastro</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/homee.css">
+  9  
+
+Frontend\Cliente\Inicio\HTML\login.html:
+  7      <title>Login - Viva Finanças</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/style.css">
+  9      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+Frontend\Cliente\Inicio\HTML\Sobre.html:
+  7      <title>Viva Finanças - Cadastro</title>
+  8:     <link rel="stylesheet" href="/Inicio/HTML/CSS/sobre.css">
+  9  

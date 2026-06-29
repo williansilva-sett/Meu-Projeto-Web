@@ -6,7 +6,7 @@
     <title>Dashboard — VivaFinanças Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Cliente/Admin/CSS/Admin.css">
+    <link rel="stylesheet" href="/Frontend/Admin/CSS/Admin.css">
 </head>
 <body>
 
@@ -33,14 +33,14 @@
     <aside class="admin-sidebar">
         <nav class="sidebar-nav">
             <span class="sidebar-section-label">Menu</span>
-            <a href="/Cliente/Admin/HTML/DashboardAdmin.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/DashboardAdmin.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
                     <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
                 </svg>
                 Dashboard
             </a>
-            <a href="/Cliente/Admin/HTML/Usuarios.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/Usuarios.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                     <circle cx="9" cy="7" r="4"/>
@@ -48,7 +48,7 @@
                 </svg>
                 Usuários
             </a>
-            <a href="/Cliente/Admin/HTML/Movimentacoes.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/Movimentacoes.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="12" y1="1" x2="12" y2="23"/>
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="card-body">
                     <div class="acesso-rapido-lista">
-                        <a href="/Cliente/Admin/HTML/Usuarios.html" class="acesso-rapido-item">
+                        <a href="/Frontend/Admin/HTML/Usuarios.html" class="acesso-rapido-item">
                             <div class="acesso-rapido-icon verde">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -120,7 +120,7 @@
                                 <div class="text-muted">Ver, editar e excluir contas</div>
                             </div>
                         </a>
-                        <a href="/Cliente/Admin/HTML/Movimentacoes.html" class="acesso-rapido-item">
+                        <a href="/Frontend/Admin/HTML/Movimentacoes.html" class="acesso-rapido-item">
                             <div class="acesso-rapido-icon azul">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                                     <line x1="12" y1="1" x2="12" y2="23"/>
@@ -142,7 +142,7 @@
 
 <div id="toast-container"></div>
 
-<script src="/Cliente/Admin/JS/Admin.js"></script>
+<script src="/Frontend/Admin/JS/Admin.js"></script>
 <script>
     if (!requerAdmin()) { /* redireciona */ }
     inicializarLayout();

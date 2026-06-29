@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +11,31 @@
     <div class="main-container">
         <div class="brand-column">
             <img src="/img/logo.png" alt="Logo Viva Finanças" class="brand-logo">
-          
         </div>
 
         <div class="form-column">
             <div class="form-card">
                 <h2 class="card-title">Esqueceu<br>sua senha?</h2>
-                <p class="card-subtitle">Escolha uma das opções abaixo para redefinir sua senha</p>
+                <p class="card-subtitle">Informe seu email e enviaremos um link para você criar uma nova senha.</p>
 
-                <div class="recovery-section">
-                    <label>EMAIL</label>
-                    <p class="masked-info">jirara******@gmail.com</p>
-                    <div class="recovery-button">
-                        <div class="icon-circle">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <span>Redefinir senha via email</span>
+                <form id="form-recuperar">
+                    <div class="input-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
                     </div>
-                </div>
 
-                <div class="recovery-section">
-                    <label>TELEFONE</label>
-                    <p class="masked-info">(+55) XXXXX-XXXX</p>
-                    <div class="recovery-button">
-                        <div class="icon-circle">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <span>Redefinir a senha via SMS/Whatsapp</span>
-                    </div>
-                </div>
+                    <button type="submit" class="submit-button">Enviar instruções</button>
+                </form>
+
+                <p class="card-subtitle" id="mensagem-sucesso" style="display:none; margin-top: 20px; color: #0b8d43;">
+                    Se esse email estiver cadastrado, você vai receber as instruções em poucos minutos. Confira também a caixa de spam.
+                </p>
             </div>
         </div>
     </div>
+
+    <script src="/Inicio/HTML/Javascript/api-client.js"></script>
+    <script src="/Inicio/HTML/Javascript/auth.js"></script>
+    <script src="/Inicio/HTML/Javascript/recuperar-senha.js"></script>
 </body>
 </html>

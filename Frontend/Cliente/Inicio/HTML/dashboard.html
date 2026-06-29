@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Finanças - Dashboard</title>
+    <link rel="stylesheet" href="/Inicio/HTML/CSS/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <span>VIVA FINANÇAS</span>
+            </div>
+
+            <ul class="menu">
+                <li><a href="dashboard.html" class="active"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                <li><a href="movimentacoes.html"><i class="fa-solid fa-arrow-right-arrow-left"></i> Movimentações</a></li>
+                <li><a href="metas.html"><i class="fa-solid fa-bullseye"></i> Metas</a></li>
+                <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a></li>
+            </ul>
+
+            <div class="buttons">
+                <span id="saudacao" class="saudacao"></span>
+                <button id="btn-logout" class="btn-login">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+
+        <section class="resumo-cards">
+            <div class="card resumo entradas">
+                <div class="icon green"><i class="fa-solid fa-arrow-up"></i></div>
+                <div>
+                    <span class="label">Entradas</span>
+                    <h2 id="total-entradas">R$ 0,00</h2>
+                </div>
+            </div>
+
+            <div class="card resumo saidas">
+                <div class="icon red"><i class="fa-solid fa-arrow-down"></i></div>
+                <div>
+                    <span class="label">Saídas</span>
+                    <h2 id="total-saidas">R$ 0,00</h2>
+                </div>
+            </div>
+
+            <div class="card resumo saldo">
+                <div class="icon purple"><i class="fa-solid fa-wallet"></i></div>
+                <div>
+                    <span class="label">Saldo</span>
+                    <h2 id="saldo">R$ 0,00</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+
+            <div class="painel movimentacoes-painel">
+                <div class="painel-header">
+                    <h3>Últimas movimentações</h3>
+                    <a href="movimentacoes.html">Ver todas</a>
+                </div>
+                <ul id="lista-movimentacoes" class="lista-movimentacoes">
+                    <li class="vazio">Carregando...</li>
+                </ul>
+            </div>
+
+            <div class="painel metas-painel">
+                <div class="painel-header">
+                    <h3>Suas metas</h3>
+                    <a href="metas.html">Ver todas</a>
+                </div>
+                <ul id="lista-metas" class="lista-metas">
+                    <li class="vazio">Carregando...</li>
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/Inicio/HTML/Javascript/api-client.js"></script>
+    <script src="/Inicio/HTML/Javascript/auth.js"></script>
+    <script src="/Inicio/HTML/Javascript/usuario.js"></script>
+    <script src="/Inicio/HTML/Javascript/dashboard.js"></script>
+</body>
+</html>

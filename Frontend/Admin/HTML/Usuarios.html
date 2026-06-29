@@ -6,7 +6,7 @@
     <title>Usuários — VivaFinanças Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Cliente/Admin/CSS/Admin.css">
+    <link rel="stylesheet" href="/Frontend/Admin/CSS/Admin.css">
 </head>
 <body>
 
@@ -33,14 +33,14 @@
     <aside class="admin-sidebar">
         <nav class="sidebar-nav">
             <span class="sidebar-section-label">Menu</span>
-            <a href="/Cliente/Admin/HTML/DashboardAdmin.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/DashboardAdmin.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
                     <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
                 </svg>
                 Dashboard
             </a>
-            <a href="/Cliente/Admin/HTML/Usuarios.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/Usuarios.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                     <circle cx="9" cy="7" r="4"/>
@@ -48,7 +48,7 @@
                 </svg>
                 Usuários
             </a>
-            <a href="/Cliente/Admin/HTML/Movimentacoes.html" class="sidebar-link">
+            <a href="/Frontend/Admin/HTML/Movimentacoes.html" class="sidebar-link">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="12" y1="1" x2="12" y2="23"/>
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
@@ -173,7 +173,7 @@
 
 <div id="toast-container"></div>
 
-<script src="/Cliente/Admin/JS/Admin.js"></script>
+<script src="/Frontend/Admin/JS/Admin.js"></script>
 <script>
     if (!requerAdmin()) { /* redireciona */ }
     inicializarLayout();
@@ -236,23 +236,23 @@
         document.getElementById('tabela-body').innerHTML =
             `<tr><td colspan="7"><div class="loading"><div class="spinner"></div> Carregando...</div></td></tr>`;
 
-        const data = await apiGet(`/api/admin/usuarios?${params}`);
+            const resultado = await apiGet(`/api/admin/transacoes?${params}`);
 
-        if (!data) {
+        if (!resultado.ok || !resultado.data) {
             document.getElementById('tabela-body').innerHTML =
-                `<tr><td colspan="7" class="text-muted" style="text-align:center;padding:24px;">Erro ao carregar usuários.</td></tr>`;
+                `<tr><td colspan="6" style="text-align:center;color:var(--vermelho);padding:24px;">Erro ao carregar transações.</td></tr>`;
             return;
         }
 
-        totalItens     = data.totalItens;
-        usuariosCache  = data.itens; // guarda os dados crus para uso nos modais
+        const data = resultado.data;
+        totalItens = data.totalItens;
         renderTabela(data.itens);
         renderPaginacao(data.totalPaginas);
     }
 
     function renderTabela(usuarios) {
         const tbody = document.getElementById('tabela-body');
-
+    
         if (!usuarios.length) {
             tbody.innerHTML = `<tr><td colspan="7" class="text-muted" style="text-align:center;padding:32px;">Nenhum usuário encontrado.</td></tr>`;
             return;
