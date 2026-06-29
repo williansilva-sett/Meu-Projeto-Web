@@ -23,6 +23,10 @@ builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 builder.Services.AddSingleton<ISenhaHasher, SenhaHasher>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IMetaService, MetaService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.Configure<EmailSettings>(
+    builder.Configuration.GetSection(EmailSettings.SectionName));
+ 
  
 // ── BANCO DE DADOS ────────────────────────────────────────────────────────────
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
