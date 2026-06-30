@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reportar Bug/Melhoria | Viva Finanças</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/Inside/HTML/CSS/reportar.css">
+
+</head>
+
+<body>
+
+    <!--================ HEADER ================-->
+
+    <header class="topbar">
+
+        <div class="logo">
+
+            <img src="/img/logo.png" class="logo-img" alt="Logo Viva Finanças">
+
+            <h2>VIVA FINANÇAS</h2>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span>2</span>
+
+            </div>
+
+            <div class="user-menu">
+
+                <img src="img/avatar.jpg">
+
+                <span>Jiara Martins</span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--=====================================
+                SIDEBAR
+    ======================================-->
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a href="/Inside/HTML/dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/Relatorios.html">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Relatórios</span>
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="/Inside/HTML/rendas.html">
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+                        <span>Rendas</span>
+
+                    </a>
+
+                </li>
+
+                
+                <li >
+
+                    <a href="/Inside/HTML/gastos.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Gastos</span>
+
+                    </a>
+
+                <li>
+
+                    <a href="/Inside/HTML/metas.html">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <span>Metas Financeiras</span>
+
+                    </a>
+
+                </li>
+
+
+                    <li class="active">
+
+                    <a href="/Inside/HTML/reportar.html">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                        <span>Reportar Bug/Melhoria</span>
+
+                    </a>
+
+                </li>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/configuracoes.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Configurações</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>Perfil de Usuário</span>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/Inicio/HTML/home.html">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Sair</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!--================ CONTEÚDO ================-->
+
+    <main class="content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>Reportar Bug/Melhoria</h1>
+
+                <p>Ajude-nos a tornar o Viva Finanças ainda melhor.</p>
+
+            </div>
+
+            <div class="header-image">
+
+                <img src="/img/bug.png" alt="Bug">
+
+            </div>
+
+        </div>
+
+        <div class="report-grid">
+
+            <!--================ FORMULÁRIO ================-->
+
+            <section class="report-card">
+
+                <h2>Detalhes do relatório</h2>
+
+                <form id="reportForm">
+
+                    <div class="row">
+
+                        <div class="form-group">
+
+                            <label>
+
+                                Tipo de relato
+
+                                <span>*</span>
+
+                            </label>
+
+                            <select id="reportType">
+
+                                <option value="">Selecione o tipo</option>
+
+                                <option>Bug/Erro</option>
+
+                                <option>Melhoria</option>
+
+                                <option>Dúvida</option>
+
+                                <option>Outro</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+
+                                Título
+
+                                <span>*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="Digite um título resumido">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Descrição
+
+                            <span>*</span>
+
+                        </label>
+
+                        <textarea
+                            id="description"
+                            maxlength="1000"
+                            placeholder="Descreva o que aconteceu ou sua sugestão com o máximo de detalhes possível..."></textarea>
+
+                        <small id="counter">
+
+                            0/1000
+
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Anexo (opcional)</label>
+
+                        <div id="dropArea">
+
+                            <input
+                                type="file"
+                                id="fileInput"
+                                hidden>
+
+                            <i class="fa-solid fa-paperclip"></i>
+
+                            <div>
+
+                                <strong>Adicionar arquivo</strong>
+
+                                <p>PNG, JPG, PDF ou GIF até 10MB</p>
+
+                            </div>
+
+                        </div>
+
+                        <div id="previewFile"></div>
+
+                    </div>
+
+                    <button class="submit-btn">
+
+                        <i class="fa-regular fa-paper-plane"></i>
+
+                        Enviar relatório
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!--================ LADO DIREITO ================-->
+
+            <aside class="right-panel">
+
+                <div class="info-card">
+
+                    <h3>Como funciona</h3>
+
+                    <p>
+
+                        Conte-nos o que encontrou ou o que podemos melhorar.
+
+                        Nossa equipe irá analisar sua sugestão.
+
+                    </p>
+
+                </div>
+
+                <div class="types-card">
+
+                    <h3>Tipos de relato</h3>
+
+                    <div class="type-item">
+
+                        <div class="icon green">
+
+                            <i class="fa-solid fa-bug"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>Bug/Erro</strong>
+
+                            <p>Problemas que impedem o funcionamento correto.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="type-item">
+
+                        <div class="icon purple">
+
+                            <i class="fa-regular fa-lightbulb"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>Melhoria</strong>
+
+                            <p>Sugestões para novas funcionalidades.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="type-item">
+
+                        <div class="icon blue">
+
+                            <i class="fa-regular fa-circle-question"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>Dúvida</strong>
+
+                            <p>Perguntas sobre o uso da plataforma.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="type-item">
+
+                        <div class="icon orange">
+
+                            <i class="fa-regular fa-message"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>Outro</strong>
+
+                            <p>Outros assuntos não enquadrados acima.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="security-card">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <div>
+
+                        <strong>Suas informações estão seguras</strong>
+
+                        <p>
+
+                            Todos os relatos são analisados com atenção pela nossa equipe.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <script src="/Javascript/reportar.js"></script>
+
+</body>
+
+</html>

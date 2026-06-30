@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rendas | Viva Finanças</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/Inside/HTML/CSS/rendas.css">
+
+</head>
+
+<body>
+
+<!--================ HEADER ================-->
+
+    <header class="topbar">
+
+        <div class="logo">
+
+            <img src="/img/logo.png" class="logo-img" alt="Logo Viva Finanças">
+
+            <h2>VIVA FINANÇAS</h2>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span>2</span>
+
+            </div>
+
+            <div class="user-menu">
+
+                <img src="/img/user.png">
+
+                <span>Jiara Martins</span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--=====================================
+                SIDEBAR
+    ======================================-->
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a href="/Inside/HTML/dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/Relatorios.html">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Relatórios</span>
+
+                    </a>
+
+                </li>
+
+
+
+                <li class="active">
+
+                    <a href="/Inside/HTML/rendas.html">
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+                        <span>Rendas</span>
+
+                    </a>
+
+                </li>
+
+                
+                <li>
+
+                    <a href="/Inside/HTML/gastos.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Gastos</span>
+
+                    </a>
+
+                <li>
+
+                    <a href="/Inside/HTML/metas.html">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <span>Metas Financeiras</span>
+
+                    </a>
+
+                </li>
+
+
+                    <li>
+
+                    <a href="/Inside/HTML/reportar.html">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                        <span>Reportar Bug/Melhoria</span>
+
+                    </a>
+
+                </li>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/configuracoes.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Configurações</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>Perfil de Usuário</span>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/Inicio/HTML/home.html">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Sair</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+<!--================ MAIN ================-->
+
+<main class="content">
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>Rendas</h1>
+
+            <p>Gerencie suas fontes de renda.</p>
+
+        </div>
+
+        <button class="new-income-btn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Nova Renda
+
+        </button>
+
+    </div>
+
+    <!--================ RESUMO ================-->
+
+    <section class="summary-card">
+
+        <h2>Resumo das rendas</h2>
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+
+                <div class="icon green">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Total mensal</span>
+
+                    <strong id="totalIncome">
+                        R$ 8.500,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="summary-item">
+
+                <div class="icon gray">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Média mensal</span>
+
+                    <strong id="averageIncome">
+                        R$ 8.500,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="summary-item">
+
+                <div class="icon purple">
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Fontes ativas</span>
+
+                    <strong id="activeCount">
+                        4
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="summary-item">
+
+                <div class="icon blue">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Último recebimento</span>
+
+                    <strong>
+                        31/05/2024
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!--================ TABELA ================-->
+
+    <section class="table-card">
+
+        <div class="tabs">
+
+            <button class="tab active" data-filter="all">
+                Todas as rendas
+            </button>
+
+            <button class="tab" data-filter="ativa">
+                Ativas
+            </button>
+
+            <button class="tab" data-filter="inativa">
+                Inativas
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Fonte</th>
+                    <th>Categoria</th>
+                    <th>Valor</th>
+                    <th>Frequência</th>
+                    <th>Próximo recebimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="incomeTable">
+
+                <tr data-status="ativa">
+
+                    <td>
+
+                        <div class="income-name">
+
+                            <div class="icon green">
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                            </div>
+
+                            Salário
+
+                        </div>
+
+                    </td>
+
+                    <td>Trabalho</td>
+
+                    <td>R$ 5.500,00</td>
+
+                    <td>Mensal</td>
+
+                    <td>30/06/2024</td>
+
+                    <td>
+
+                        <span class="status active-status">
+
+                            Ativa
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button class="action edit">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </button>
+
+                        <button class="action delete">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                <tr data-status="ativa">
+
+                    <td>
+
+                        <div class="income-name">
+
+                            <div class="icon purple">
+
+                                <i class="fa-solid fa-laptop"></i>
+
+                            </div>
+
+                            Freelance
+
+                        </div>
+
+                    </td>
+
+                    <td>Trabalho</td>
+
+                    <td>R$ 2.000,00</td>
+
+                    <td>Mensal</td>
+
+                    <td>05/06/2024</td>
+
+                    <td>
+
+                        <span class="status active-status">
+
+                            Ativa
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button class="action edit">
+
+                            <i class="fa-solid fa-pen"></i>
+
+                        </button>
+
+                        <button class="action delete">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                <tr data-status="ativa">
+
+                    <td>
+
+                        <div class="income-name">
+
+                            <div class="icon orange">
+
+                                <i class="fa-solid fa-house"></i>
+
+                            </div>
+
+                            Aluguel
+
+                        </div>
+
+                    </td>
+
+                    <td>Investimentos</td>
+
+                    <td>R$ 1.000,00</td>
+
+                    <td>Mensal</td>
+
+                    <td>10/06/2024</td>
+
+                    <td>
+
+                        <span class="status active-status">
+
+                            Ativa
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button class="action edit">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="action delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                <tr data-status="inativa">
+
+                    <td>
+
+                        <div class="income-name">
+
+                            <div class="icon red">
+
+                                <i class="fa-solid fa-dollar-sign"></i>
+
+                            </div>
+
+                            Vendas online
+
+                        </div>
+
+                    </td>
+
+                    <td>Outros</td>
+
+                    <td>R$ 0,00</td>
+
+                    <td>Eventual</td>
+
+                    <td>—</td>
+
+                    <td>
+
+                        <span class="status inactive-status">
+
+                            Inativa
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button class="action edit">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <button class="action delete">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <div>
+
+                <strong>Importante</strong>
+
+                <p>
+                    As rendas recorrentes serão consideradas nos relatórios e previsões financeiras.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="/Inside/HTML/Javascript/rendas.js"></script>
+
+</body>
+
+</html>

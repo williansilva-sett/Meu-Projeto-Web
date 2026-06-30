@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Viva Finanças - Metas Financeiras</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Chart.js -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="/Inside/HTML/CSS/metas.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+     <!--================ HEADER ================-->
+
+    <header class="topbar">
+
+        <div class="logo">
+
+            <img src="/img/logo.png" class="logo-img" alt="Logo Viva Finanças">
+
+            <h2>VIVA FINANÇAS</h2>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span>2</span>
+
+            </div>
+
+            <div class="user-menu">
+
+                <img src="img/avatar.jpg">
+
+                <span>Jiara Martins</span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--=====================================
+                SIDEBAR
+    ======================================-->
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a href="/Inside/HTML/dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/Relatorios.html">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Relatórios</span>
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="/Inside/HTML/rendas.html">
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+                        <span>Rendas</span>
+
+                    </a>
+
+                </li>
+
+                
+                <li >
+
+                    <a href="/Inside/HTML/gastos.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Gastos</span>
+
+                    </a>
+
+                <li class="active">
+
+                    <a href="/Inside/HTML/metas.html">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <span>Metas Financeiras</span>
+
+                    </a>
+
+                </li>
+
+
+                    <li>
+
+                    <a href="/Inside/HTML/reportar.html">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                        <span>Reportar Bug/Melhoria</span>
+
+                    </a>
+
+                </li>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/configuracoes.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Configurações</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>Perfil de Usuário</span>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/Inicio/HTML/home.html">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Sair</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="content">
+
+        <!-- TÍTULO -->
+
+        <section class="page-title">
+
+            <div>
+
+                <h1>Metas Financeiras</h1>
+
+                <p>Planeje e acompanhe seus objetivos financeiros.</p>
+
+            </div>
+
+            <button class="btn-primary">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Nova Meta
+
+            </button>
+
+        </section>
+
+        <!--=====================================
+                    CARDS SUPERIORES
+        ======================================-->
+
+        <section class="cards">
+
+            <div class="summary-card">
+
+                <div class="icon blue">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                </div>
+
+                <div>
+
+                    <small>Total de metas</small>
+
+                    <h2>5</h2>
+
+                    <p>Em andamento</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="icon green">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+                <div>
+
+                    <small>Total investido</small>
+
+                    <h2>R$ 12.450,00</h2>
+
+                    <p>de R$ 28.500,00</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="icon purple">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                </div>
+
+                <div>
+
+                    <small>Progresso geral</small>
+
+                    <h2>43,7%</h2>
+
+                    <p>das metas concluídas</p>
+
+                </div>
+
+            </div>
+
+            <div class="summary-card">
+
+                <div class="icon orange">
+
+                    <i class="fa-solid fa-trophy"></i>
+
+                </div>
+
+                <div>
+
+                    <small>Meta concluída</small>
+
+                    <h2>1</h2>
+
+                    <p>no último ano</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--=====================================
+                    GRID
+        ======================================-->
+
+        <section class="dashboard-grid">
+
+            <!-- ESQUERDA -->
+
+            <div class="left-column">
+
+                <div class="card">
+
+                    <!-- TABS -->
+
+                    <div class="tabs">
+
+                        <button class="tab active">
+
+                            Todas as metas
+
+                        </button>
+
+                        <button class="tab">
+
+                            Em andamento
+
+                        </button>
+
+                        <button class="tab">
+
+                            Concluídas
+
+                        </button>
+
+                        <button class="tab">
+
+                            Pausadas
+
+                        </button>
+
+                    </div>
+
+                    <!-- LISTA -->
+
+                    <div id="goalsList">
+
+                    </div>
+
+                    <div class="table-footer">
+
+                        Mostrando 5 de 5 metas
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- DIREITA -->
+
+            <div class="right-column">
+
+                <!-- Gráfico -->
+
+                <div class="card">
+
+                    <h3>
+
+                        Distribuição por categoria
+
+                    </h3>
+
+                    <canvas id="goalChart"></canvas>
+
+                </div>
+
+                <!-- Dicas -->
+
+                <div class="card">
+
+                    <h3>
+
+                        Dicas para suas metas
+
+                    </h3>
+
+                    <div class="tips">
+
+                        <div class="tip">
+
+                            <i class="fa-regular fa-lightbulb"></i>
+
+                            <div>
+
+                                <strong>Seja específico</strong>
+
+                                <p>
+                                    Defina valores claros para suas metas.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tip">
+
+                            <i class="fa-solid fa-repeat"></i>
+
+                            <div>
+
+                                <strong>Acompanhe regularmente</strong>
+
+                                <p>
+                                    Revise o progresso mensalmente.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tip">
+
+                            <i class="fa-solid fa-seedling"></i>
+
+                            <div>
+
+                                <strong>Comece pequeno</strong>
+
+                                <p>
+                                    Pequenos passos geram grandes resultados.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn-link">
+
+                            Ver mais dicas
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Calculadora -->
+
+                <div class="card">
+
+                    <h3>
+
+                        Calculadora de Meta
+
+                    </h3>
+
+                    <p>
+
+                        Simule quanto precisa guardar por mês.
+
+                    </p>
+
+                    <button class="btn-outline">
+
+                        <i class="fa-solid fa-calculator"></i>
+
+                        Usar calculadora
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/Inside/HTML/Javascript/metas.js"></script>
+
+</body>
+
+</html>

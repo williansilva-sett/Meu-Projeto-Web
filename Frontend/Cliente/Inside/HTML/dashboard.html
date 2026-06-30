@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Viva Finanças</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/Inside/HTML/CSS/dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!--================ HEADER ================-->
+
+    <header class="topbar">
+
+        <div class="logo">
+
+            <img src="/img/logo.png" class="logo-img" alt="Logo Viva Finanças">
+
+            <h2>VIVA FINANÇAS</h2>
+
+        </div>
+
+        <div class="topbar-right">
+
+            
+
+            <div class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span>2</span>
+
+            </div>
+
+            <div class="user-menu">
+
+                <img src="/img/user.png">
+
+                <span>Jiara Martins</span>
+
+            </div>
+                
+
+            </a>
+
+        </div>
+                
+    </header>
+
+    <!--=====================================
+                SIDEBAR
+    ======================================-->
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <ul>
+
+                <li class="active" >
+
+                    <a href="/Inside/HTML/dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/Relatorios.html">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Relatórios</span>
+
+                    </a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="/Inside/HTML/rendas.html">
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+                        <span>Rendas</span>
+
+                    </a>
+
+                </li>
+
+                
+                <li >
+
+                    <a href="/Inside/HTML/gastos.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Gastos</span>
+
+                    </a>
+
+                <li>
+
+                    <a href="/Inside/HTML/metas.html">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <span>Metas Financeiras</span>
+
+                    </a>
+
+                </li>
+
+
+                    <li >
+
+                    <a href="/Inside/HTML/reportar.html">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                        <span>Reportar Bug/Melhoria</span>
+
+                    </a>
+
+                </li>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/configuracoes.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Configurações</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>Perfil de Usuário</span>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/Inicio/HTML/home.html">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Sair</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+        <main class="content">
+
+        <!-- CARDS -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div>
+
+                    <h4>Saldo atual</h4>
+
+                    <h2>R$ 5.280,00</h2>
+
+                    <span>em contas</span>
+
+                </div>
+
+                <div class="card-icon green">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h4>Receitas</h4>
+
+                    <h2>R$ 8.500,00</h2>
+
+                    <span>no mês</span>
+
+                </div>
+
+                <div class="status positive">
+
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    12%
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h4>Despesas</h4>
+
+                    <h2>R$ 3.220,00</h2>
+
+                    <span>no mês</span>
+
+                </div>
+
+                <div class="status negative">
+
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+
+                    8%
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h4>Metas</h4>
+
+                    <h2>2 de 5</h2>
+
+                    <span>concluídas</span>
+
+                </div>
+
+                <div class="card-icon purple">
+
+                    <i class="fa-solid fa-bullseye"></i>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- GRÁFICO + MOVIMENTAÇÕES -->
+
+        <section class="middle">
+
+            <div class="chart-box">
+
+                <div class="box-title">
+
+                    <h2>Receitas x Despesas</h2>
+
+                    <select>
+
+                        <option>Mensal</option>
+                        <option>Semanal</option>
+                        <option>Anual</option>
+
+                    </select>
+
+                </div>
+
+                <canvas id="financeChart"></canvas>
+
+            </div>
+
+            <div class="transactions">
+
+                <div class="box-title">
+
+                    <h2>Últimas movimentações</h2>
+
+                    <a href="#">Ver todas</a>
+
+                </div>
+
+                                <!-- ITEM 1 -->
+
+                <div class="transaction">
+
+                    <div class="transaction-left">
+
+                        <div class="icon income">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Salário</h4>
+
+                            <span>Receita</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right positive">
+
+                        <strong>+ R$ 3.000,00</strong>
+
+                        <small>Hoje</small>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 2 -->
+
+                <div class="transaction">
+
+                    <div class="transaction-left">
+
+                        <div class="icon expense">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Mercado</h4>
+
+                            <span>Despesa</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right negative">
+
+                        <strong>- R$ 250,00</strong>
+
+                        <small>Ontem</small>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 3 -->
+
+                <div class="transaction">
+
+                    <div class="transaction-left">
+
+                        <div class="icon expense">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Internet</h4>
+
+                            <span>Despesa</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right negative">
+
+                        <strong>- R$ 120,00</strong>
+
+                        <small>08/05/2024</small>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 4 -->
+
+                <div class="transaction">
+
+                    <div class="transaction-left">
+
+                        <div class="icon income">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Freelance</h4>
+
+                            <span>Receita</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right positive">
+
+                        <strong>+ R$ 800,00</strong>
+
+                        <small>04/05/2024</small>
+
+                    </div>
+
+                </div>
+
+                <!-- ITEM 5 -->
+
+                <div class="transaction">
+
+                    <div class="transaction-left">
+
+                        <div class="icon expense">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+
+                        <div>
+
+                            <h4>Academia</h4>
+
+                            <span>Despesa</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="transaction-right negative">
+
+                        <strong>- R$ 89,00</strong>
+
+                        <small>07/05/2024</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- AÇÕES RÁPIDAS -->
+
+        <section class="quick-actions">
+
+            <h2>Ações rápidas</h2>
+
+            <div class="actions-grid">
+                
+                <button class="action-card" type="button" onclick="window.location.href='/Inside/HTML/rendas.html'">
+                    
+                    <div class="action-icon green">
+
+                        <i class="fa-solid fa-plus"></i>
+  
+                    </div>
+                
+                    <span>Nova Receita</span>
+                     
+                </button>
+
+                <button class="action-card" type="button" onclick="window.location.href='/Inside/HTML/gastos.html'">
+                    
+                    <div class="action-icon red">
+                        
+                        <i class="fa-solid fa-camera"></i>
+                        
+                    </div>
+                    
+                    <span>Nova Despesa</span>
+            
+                </button>
+
+                <button class="action-card" type="button" onclick="window.location.href='/Inside/HTML/metas.html'">
+                    
+                    <div class="action-icon green">
+                        
+                        <i class="fa-regular fa-flag"></i>
+                        
+                    </div>
+                    
+                    <span>Metas Financeiras</span>
+                     
+                </button>
+
+                <button class="action-card" type="button" onclick="window.location.href='/Inside/HTML/Relatorios.html'">
+                    
+                    <div class="action-icon purple">
+                        
+                        <i class="fa-solid fa-chart-column"></i>
+                        
+                    </div>
+
+                    <span>Ver Relatórios</span>
+                    
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="/Inside/HTML/Javascript/dashboard.js"></script>
+
+</body>
+</html>

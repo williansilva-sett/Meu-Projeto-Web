@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Viva Finanças | Relatórios</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    
+
+    <link rel="stylesheet" href="/Inside/HTML/CSS/relatorio.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+        <div class="logo">
+
+            <img src="/img/logo.png" class="logo-img" alt="Logo Viva Finanças">
+
+            <h2>VIVA FINANÇAS</h2>
+
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="notification">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span>2</span>
+
+            </div>
+
+            <div class="user-menu">
+
+                <img src="img/avatar.jpg">
+
+                <span>Jiara Martins</span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--=====================================
+                SIDEBAR
+    ======================================-->
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a href="/Inside/HTML/dashboard.html">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li class="active">
+
+                    <a href="/Inside/HTML/Relatorios.html">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        <span>Relatórios</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/rendas.html">
+
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+
+                        <span>Rendas</span>
+
+                    </a>
+
+                </li>
+
+                
+                <li >
+
+                    <a href="/Inside/HTML/gastos.html">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span>Gastos</span>
+
+                    </a>
+
+                <li>
+
+                    <a href="/Inside/HTML/metas.html">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                        <span>Metas Financeiras</span>
+
+                    </a>
+
+                </li>
+
+
+                    <li>
+
+                    <a href="/Inside/HTML/reportar.html">
+
+                        <i class="fa-solid fa-bug"></i>
+
+                        <span>Reportar Bug/Melhoria</span>
+
+                    </a>
+
+                </li>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/configuracoes.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Configurações</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="/Inside/HTML/profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <span>Perfil de Usuário</span>
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+        <div class="logout">
+
+            <a href="/Inicio/HTML/home.html">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                <span>Sair</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="content">
+        <!-- CABEÇALHO -->
+
+        <section class="page-header">
+
+            <div>
+
+                <h1>Relatórios Mensais</h1>
+
+                <p>
+
+                    Acompanhe sua evolução financeira.
+
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button class="period-btn">
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    01/05/2024 - 31/05/2024
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <button class="export-btn">
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Exportar
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+                    CARDS
+        ====================================== -->
+
+        <section class="cards">
+
+            <!-- Receita -->
+
+            <div class="card resumo-card">
+
+                <span class="card-title">
+
+                    Receitas totais
+
+                </span>
+
+                <h2 class="green">
+
+                    R$ 8.500,00
+
+                </h2>
+
+                <div class="card-footer">
+
+                    <span>
+
+                        no período
+
+                    </span>
+
+                    <strong class="up">
+
+                        <i class="fa-solid fa-arrow-up"></i>
+
+                        12%
+
+                    </strong>
+
+                </div>
+
+                <small>
+
+                    vs. mês anterior
+
+                </small>
+
+            </div>
+
+            <!-- Despesas -->
+
+            <div class="card resumo-card">
+
+                <span class="card-title">
+
+                    Despesas totais
+
+                </span>
+
+                <h2 class="red">
+
+                    R$ 3.220,00
+
+                </h2>
+
+                <div class="card-footer">
+
+                    <span>
+
+                        no período
+
+                    </span>
+
+                    <strong class="down">
+
+                        <i class="fa-solid fa-arrow-down"></i>
+
+                        8%
+
+                    </strong>
+
+                </div>
+
+                <small>
+
+                    vs. mês anterior
+
+                </small>
+
+            </div>
+
+            <!-- Saldo -->
+
+            <div class="card resumo-card">
+
+                <span class="card-title">
+
+                    Saldo do período
+
+                </span>
+
+                <h2 class="green">
+
+                    R$ 5.280,00
+
+                </h2>
+
+                <div class="card-footer">
+
+                    <span>
+
+                        no período
+
+                    </span>
+
+                    <strong class="up">
+
+                        <i class="fa-solid fa-arrow-up"></i>
+
+                        18%
+
+                    </strong>
+
+                </div>
+
+                <small>
+
+                    vs. mês anterior
+
+                </small>
+
+            </div>
+
+            <!-- Economia -->
+
+            <div class="card resumo-card">
+
+                <span class="card-title">
+
+                    Economia
+
+                </span>
+
+                <h2 class="green">
+
+                    62%
+
+                </h2>
+
+                <div class="card-footer">
+
+                    <span>
+
+                        do que ganhou
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+                <!-- =====================================
+                    ÁREA DOS GRÁFICOS
+        ====================================== -->
+
+        <section class="charts-grid">
+
+            <!-- =============================
+                    GRÁFICO DE LINHA
+            ============================== -->
+
+            <div class="card chart-card">
+
+                <div class="card-header">
+
+                    <h3>Receitas x Despesas</h3>
+
+                    <select id="chartPeriod">
+
+                        <option>Diário</option>
+                        <option>Semanal</option>
+                        <option selected>Mensal</option>
+                        <option>Anual</option>
+
+                    </select>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <canvas id="lineChart"></canvas>
+
+                </div>
+
+            </div>
+
+            <!-- =============================
+                    DONUT
+            ============================== -->
+
+            <div class="card donut-card">
+
+                <div class="card-header">
+
+                    <h3>Distribuição de Despesas</h3>
+
+                </div>
+
+                <div class="donut-content">
+
+                    <div class="donut-chart">
+
+                        <canvas id="donutChart"></canvas>
+
+                    </div>
+
+                    <div class="donut-legend">
+
+                        <div class="legend-item">
+
+                            <div class="legend-left">
+
+                                <span class="color blue"></span>
+
+                                <span>Moradia</span>
+
+                            </div>
+
+                            <strong>40%</strong>
+
+                        </div>
+
+                        <div class="legend-item">
+
+                            <div class="legend-left">
+
+                                <span class="color green"></span>
+
+                                <span>Alimentação</span>
+
+                            </div>
+
+                            <strong>25%</strong>
+
+                        </div>
+
+                        <div class="legend-item">
+
+                            <div class="legend-left">
+
+                                <span class="color yellow"></span>
+
+                                <span>Transporte</span>
+
+                            </div>
+
+                            <strong>15%</strong>
+
+                        </div>
+
+                        <div class="legend-item">
+
+                            <div class="legend-left">
+
+                                <span class="color purple"></span>
+
+                                <span>Lazer</span>
+
+                            </div>
+
+                            <strong>10%</strong>
+
+                        </div>
+
+                        <div class="legend-item">
+
+                            <div class="legend-left">
+
+                                <span class="color gray"></span>
+
+                                <span>Outros</span>
+
+                            </div>
+
+                            <strong>10%</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- =====================================
+                RESUMO + TOP CATEGORIAS
+        ====================================== -->
+
+        <section class="bottom-grid">
+
+            <!-- ===========================
+                    TABELA
+            ============================ -->
+
+            <div class="card table-card">
+
+                <div class="card-header">
+
+                    <h3>Resumo por categoria</h3>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Categoria</th>
+                                <th>Receitas</th>
+                                <th>Despesas</th>
+                                <th>Saldo</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>Moradia</td>
+
+                                <td>R$ 0,00</td>
+
+                                <td>R$ 1.280,00</td>
+
+                                <td class="negative">
+
+                                    - R$ 1.280,00
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Alimentação</td>
+
+                                <td>R$ 0,00</td>
+
+                                <td>R$ 805,00</td>
+
+                                <td class="negative">
+
+                                    - R$ 805,00
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Transporte</td>
+
+                                <td>R$ 0,00</td>
+
+                                <td>R$ 483,00</td>
+
+                                <td class="negative">
+
+                                    - R$ 483,00
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Lazer</td>
+
+                                <td>R$ 0,00</td>
+
+                                <td>R$ 322,00</td>
+
+                                <td class="negative">
+
+                                    - R$ 322,00
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>Outros</td>
+
+                                <td>R$ 0,00</td>
+
+                                <td>R$ 330,00</td>
+
+                                <td class="negative">
+
+                                    - R$ 330,00
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                        <tfoot>
+
+                            <tr>
+
+                                <th>Total</th>
+
+                                <th class="green">
+
+                                    R$ 8.500,00
+
+                                </th>
+
+                                <th class="red">
+
+                                    R$ 3.220,00
+
+                                </th>
+
+                                <th class="green">
+
+                                    R$ 5.280,00
+
+                                </th>
+
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- ===========================
+                TOP CATEGORIAS
+            ============================ -->
+
+            <div class="card top-card">
+
+                <div class="card-header">
+
+                    <h3>Top categorias</h3>
+
+                </div>
+
+                <div class="progress-list">
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Moradia</span>
+
+                            <span>R$ 1.280,00 (40%)</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="fill blue" style="width:40%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Alimentação</span>
+
+                            <span>R$ 805,00 (25%)</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="fill green" style="width:25%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Transporte</span>
+
+                            <span>R$ 483,00 (15%)</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="fill yellow" style="width:15%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Lazer</span>
+
+                            <span>R$ 322,00 (10%)</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="fill purple" style="width:10%;"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="progress-item">
+
+                        <div class="progress-title">
+
+                            <span>Outros</span>
+
+                            <span>R$ 330,00 (10%)</span>
+
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div class="fill gray" style="width:10%;"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ==========================
+        CHART.JS
+=========================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- ==========================
+        JAVASCRIPT
+=========================== -->
+
+<script src="/Inside/HTML/Javascript/home.js"></script>
+
+<!-- ChartJS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- SheetJS -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+</body>
+
+</html>
